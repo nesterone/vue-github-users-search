@@ -7,11 +7,11 @@ export const  userFixtures = {
         return [
             {
                 avatar: 'https://avatars.githubusercontent.com/u/660378?v=4',
-                name: 'fact'
+                name: 'factset'
             },
             {
-                avatar: 'https://example.com/tom',
-                name: 'tom'
+                avatar: 'https://avatars.githubusercontent.com/u/10263490?v=4',
+                name: 'fact'
             }
         ]
 

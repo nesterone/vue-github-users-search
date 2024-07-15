@@ -1,15 +1,17 @@
 import UserCard from './UserCard.vue'
+import {userFixtures} from "@/api/userFixtures";
 
 describe('<UserCard />', () => {
   it('renders with basic props', () => {
-    const avatar = 'https://avatars.githubusercontent.com/u/660378?v=4'
+   const [joe] = userFixtures.defaultList()
+
     cy.mount(UserCard, {
       props: {
-        name: 'joe',
-        avatar
+        name: joe.name,
+        avatar: joe.avatar
       }
     })
-    cy.contains('joe')
-    cy.get(`img[alt="User Avatar"]`).should('have.attr', 'src', avatar)
+    cy.contains(joe.name)
+    cy.get(`img[alt="User Avatar"]`).should('have.attr', 'src', joe.avatar)
   })
 })
