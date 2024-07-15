@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import UserList from "@/components/UserList.vue";
+import {userFixtures} from "@/api/userFixtures";
+import {ref} from "vue";
 
-
+const users = ref(userFixtures.defaultList());
 
 </script>
 
@@ -17,7 +19,7 @@ import UserList from "@/components/UserList.vue";
 
   <main>
 
-    <UserList />
+    <UserList :items="users" />
 
   </main>
 </template>
