@@ -4,7 +4,6 @@ describe('<UserList />', () => {
   it('renders', () => {
     cy.mount(UserList)
 
-
-    cy.contains('User List')
+    cy.get("[role='list']")
   })
 })

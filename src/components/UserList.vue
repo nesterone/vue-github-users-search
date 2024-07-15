@@ -3,6 +3,8 @@
 
 <template>
 
-  User List
+ <ul role="list" >
+
+ </ul>
 
 </template>
