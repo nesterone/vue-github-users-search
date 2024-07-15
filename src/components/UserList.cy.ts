@@ -1,6 +1,6 @@
 import UserList from './UserList.vue'
 import type { User } from '@/api/User'
-import {userFixtures} from "@/api/userFixtures";
+import { userFixtures } from '@/api/userFixtures'
 
 interface TestInput {
   items?: User[]
@@ -8,7 +8,6 @@ interface TestInput {
 
 describe('<UserList />', () => {
   it('renders', () => {
-
     const expected = userFixtures.defaultList()
     cy.mount(UserList, {
       props: {

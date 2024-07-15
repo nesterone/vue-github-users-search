@@ -4,10 +4,10 @@ interface UserCardProps {
   avatar: string
 }
 
-const {avatar, name} = defineProps<UserCardProps>()
+const { avatar, name } = defineProps<UserCardProps>()
 </script>
 
 <template>
   <img alt="User Avatar" :src="avatar" width="72" height="72" />
-  <p>  {{ name }}</p>
+  <p>{{ name }}</p>
 </template>

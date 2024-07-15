@@ -1,9 +1,9 @@
 import UserCard from './UserCard.vue'
-import {userFixtures} from "@/api/userFixtures";
+import { userFixtures } from '@/api/userFixtures'
 
 describe('<UserCard />', () => {
   it('renders with basic props', () => {
-   const [joe] = userFixtures.defaultList()
+    const [joe] = userFixtures.defaultList()
 
     cy.mount(UserCard, {
       props: {
