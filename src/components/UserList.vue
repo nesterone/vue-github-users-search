@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type {User} from "@/api/User";
+import UserCard from "@/components/UserCard.vue";
+
 
 interface UserListProps {
   items?: User[]
@@ -12,13 +14,9 @@ const { items } = withDefaults(defineProps<UserListProps>(), {
 
 <template>
   <ul role="list" v-if="items.length">
-
     <li v-for="(item) in items" :key="item.name" role="listitem">
-      {{ item }}
+      <user-card :name="item.name" :avatar="item.avatar" />
     </li>
-
-
   </ul>
-
   <span v-else data-testid="message">No users found.</span>
 </template>
