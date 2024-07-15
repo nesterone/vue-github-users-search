@@ -26,7 +26,7 @@ describe('<UserList />', () => {
     return function () {
       cy.mount(UserList, { props: { items: input.items } })
 
-      cy.get('[data-testid="message"]').should('have.text', 'No users found.')
+      cy.get('[data-testid="message"]').should('have.text', 'User search returned no results.')
       cy.get("[role='list']").should('not.exist')
     }
   }

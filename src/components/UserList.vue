@@ -17,5 +17,5 @@ const { items } = withDefaults(defineProps<UserListProps>(), {
       <user-card :name="item.name" :avatar="item.avatar" />
     </li>
   </ul>
-  <span v-else data-testid="message">No users found.</span>
+  <span v-else data-testid="message">User search returned no results.</span>
 </template>
