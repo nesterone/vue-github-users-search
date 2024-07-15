@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Props {
-  name: string
+  name: string,
+  avatar: string
 }
 
 const props = defineProps<Props>()
@@ -8,7 +9,6 @@ const props = defineProps<Props>()
 
 
 <template>
-User Card <br/>
-
  {{props.name}}
+  <img alt="User Avatar" :src="props.avatar" />
 </template>
