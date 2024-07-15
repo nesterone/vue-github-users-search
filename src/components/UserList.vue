@@ -12,7 +12,7 @@ const { items } = withDefaults(defineProps<UserListProps>(), {
 </script>
 
 <template>
-  <ul role="list" v-if="items.length">
+  <ul role="list" v-if="items.length" data-testid="users">
     <li v-for="item in items" :key="item.name" role="listitem">
       <user-card :name="item.name" :avatar="item.avatar" />
     </li>
