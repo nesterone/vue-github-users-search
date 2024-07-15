@@ -1,5 +1,6 @@
 import UserList from './UserList.vue'
 import type { User } from '@/api/User'
+import {userFixtures} from "@/api/userFixtures";
 
 interface TestInput {
   items?: User[]
@@ -7,24 +8,17 @@ interface TestInput {
 
 describe('<UserList />', () => {
   it('renders', () => {
+
+    const expected = userFixtures.defaultList()
     cy.mount(UserList, {
       props: {
-        items: [
-          {
-            avatar: 'https://example.com/joe',
-            name: 'joe'
-          },
-          {
-            avatar: 'https://example.com/tom',
-            name: 'tom'
-          }
-        ]
+        items: expected
       }
     })
 
     cy.get("[role='list']")
 
-    cy.get("li").its('length').should('eq', 2)
+    cy.get("li").its('length').should('eq', expected.length)
 
     cy.get('[data-testid="message"]').should('not.exist')
   })
