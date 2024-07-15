@@ -10,6 +10,6 @@ describe('<UserList />', () => {
   it('renders message when empty', () => {
     cy.mount(UserList, {props: {items: []}})
 
-    cy.get('[data-testid="message"]');
+    cy.get('[data-testid="message"]').should('have.text', 'No users found.');
   })
 })

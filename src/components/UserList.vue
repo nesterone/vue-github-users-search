@@ -9,6 +9,6 @@
 
  </ul>
 
- <span data-testid="message"></span>
+ <span data-testid="message">No users found.</span>
 
 </template>
