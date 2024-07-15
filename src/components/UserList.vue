@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type {User} from "@/api/User";
+
 interface UserListProps {
-  items?: []
+  items?: User[]
 }
 
 const { items } = withDefaults(defineProps<UserListProps>(), {

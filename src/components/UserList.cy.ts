@@ -11,8 +11,12 @@ describe('<UserList />', () => {
       props: {
         items: [
           {
-            avatar: 'https://example.com',
+            avatar: 'https://example.com/joe',
             name: 'joe'
+          },
+          {
+            avatar: 'https://example.com/tom',
+            name: 'tom'
           }
         ]
       }
@@ -20,7 +24,7 @@ describe('<UserList />', () => {
 
     cy.get("[role='list']")
 
-    cy.get("li").its('length').should('eq', 1)
+    cy.get("li").its('length').should('eq', 2)
 
     cy.get('[data-testid="message"]').should('not.exist')
   })
