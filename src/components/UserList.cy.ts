@@ -19,6 +19,9 @@ describe('<UserList />', () => {
     })
 
     cy.get("[role='list']")
+
+    cy.get("li").its('length').should('eq', 1)
+
     cy.get('[data-testid="message"]').should('not.exist')
   })
 
