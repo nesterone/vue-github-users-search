@@ -1,13 +1,13 @@
 <script setup lang="ts">
-interface Props {
+interface UserCardProps {
   name: string
   avatar: string
 }
 
-const props = defineProps<Props>()
+const {avatar, name} = defineProps<UserCardProps>()
 </script>
 
 <template>
-  {{ props.name }}
-  <img alt="User Avatar" :src="props.avatar" />
+  <img alt="User Avatar" :src="avatar" width="72" height="72" />
+  <p>  {{ name }}</p>
 </template>
