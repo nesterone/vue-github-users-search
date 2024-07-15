@@ -1,5 +1,14 @@
 import UserList from './UserList.vue'
 
+interface User {
+  avatar: string;
+  name: string;
+}
+
+interface TestInput {
+  items?: User[];
+}
+
 describe('<UserList />', () => {
   it('renders', () => {
     cy.mount(UserList)
@@ -7,9 +16,17 @@ describe('<UserList />', () => {
     cy.get("[role='list']")
   })
 
-  it('renders message when empty', () => {
-    cy.mount(UserList, {props: {items: []}})
+  function testListMessage(input : TestInput) {
+    return function () {
+      cy.mount(UserList, {props: {items: input.items}})
 
-    cy.get('[data-testid="message"]').should('have.text', 'No users found.');
-  })
+      cy.get('[data-testid="message"]').should('have.text', 'No users found.');
+    }
+  }
+
+  it('renders message when empty', testListMessage({
+    items: []
+  }))
+
+  it('renders message when not defined', testListMessage({}))
 })
