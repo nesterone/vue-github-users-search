@@ -1,9 +1,6 @@
 import UserList from './UserList.vue'
+import type {User} from "@/api/User";
 
-interface User {
-  avatar: string;
-  name: string;
-}
 
 interface TestInput {
   items?: User[];
@@ -11,9 +8,17 @@ interface TestInput {
 
 describe('<UserList />', () => {
   it('renders', () => {
-    cy.mount(UserList)
+    cy.mount(UserList, { props: {
+      items: [
+        {
+          avatar: 'https://example.com',
+          name: 'joe'
+        }
+      ]
+    }})
 
     cy.get("[role='list']")
+    cy.get('[data-testid="message"]').should('not.exist')
   })
 
   function testListMessage(input : TestInput) {
@@ -21,6 +26,7 @@ describe('<UserList />', () => {
       cy.mount(UserList, {props: {items: input.items}})
 
       cy.get('[data-testid="message"]').should('have.text', 'No users found.');
+      cy.get("[role='list']").should('not.exist')
     }
   }
 
