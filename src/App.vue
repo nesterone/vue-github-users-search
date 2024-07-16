@@ -1,15 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import UserList from "@/components/UserList.vue";
-import { useFetch } from '@vueuse/core'
-
-import {computed} from "vue";
-
-const { data } =  useFetch('https://api.github.com/search/users?q=fact&per_page=3&page=1').json()
-
-const users = computed(() => {
-  return data?.value?.items.map((i: any) => ({ name: i.login, avatar: i.avatar_url}))
-})
+import UsersSearchResult from "@/components/UsersSearchResult.vue";
 
 
 </script>
@@ -25,7 +16,7 @@ const users = computed(() => {
 
   <main>
 
-    <UserList v-if="users" :items="users" />
+    <UsersSearchResult query="test" />
 
   </main>
 </template>
