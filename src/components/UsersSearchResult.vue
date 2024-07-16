@@ -3,7 +3,11 @@ import UserList from "./UserList.vue";
 import {useFetch} from "@vueuse/core";
 import {computed} from "vue";
 
-const { query } = withDefaults(defineProps<{ query: string }>(), {
+interface UserSearchResultProps {
+  query: string
+}
+
+const { query } = withDefaults(defineProps<UserSearchResultProps>(), {
   query: () => ''
 })
 

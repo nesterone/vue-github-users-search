@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Greetings from './components/Greetings.vue'
 import UsersSearchResult from "@/components/UsersSearchResult.vue";
 
 
@@ -10,13 +10,13 @@ import UsersSearchResult from "@/components/UsersSearchResult.vue";
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="Github Users" />
+      <Greetings msg="Github Users" />
     </div>
   </header>
 
   <main>
 
-    <UsersSearchResult query="test" />
+    <UsersSearchResult query="oops" />
 
   </main>
 </template>
