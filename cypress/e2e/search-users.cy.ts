@@ -7,6 +7,6 @@ describe('Search Users', () => {
   it('has a users component', () => {
     cy.visit('/')
 
-    cy.get('[data-testid=users]')
+    cy.get('[data-testid=users] [role=listitem]').its('length').should('eq', 3);
   })
 })
