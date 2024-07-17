@@ -38,7 +38,7 @@ const users = computed(() => {
     <span v-else-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
     <ul v-else-if="isFinished && users.length > 0" role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <li v-for="item in users" :key="item.login" role="listitem" class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow">
-        <UserCard :name="item.login" :avatar="item.avatar_url" />
+        <UserCard :name="item.login" :avatar="item.avatar_url" :site-admin="item.site_admin" :type="item.type" />
       </li>
     </ul>
   </div>
