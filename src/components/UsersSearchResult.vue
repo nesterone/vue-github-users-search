@@ -34,8 +34,8 @@ const users = computed(() => {
     <span v-if="isFetching">Loading...</span>
     <span v-else-if="error">You’re going too fast! Please try again in 1 minute.</span>
     <span v-else-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
-    <ul role="list" v-else-if="isFinished && users.length > 0">
-      <li v-for="item in users" :key="item.login" role="listitem">
+    <ul v-else-if="isFinished && users.length > 0" role="list" class="divide-y divide-gray-100">
+      <li v-for="item in users" :key="item.login" role="listitem" class="flex justify-between gap-x-6 py-5">
         <UserCard :name="item.login" :avatar="item.avatar_url" />
       </li>
     </ul>
