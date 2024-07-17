@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Greetings from './components/Greetings.vue'
 import UsersSearchResult from "@/components/UsersSearchResult.vue";
 import {ref} from "vue";
 import NavBar from "@/components/NavBar.vue";
@@ -9,23 +8,16 @@ const search = ref('fact')
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <Greetings msg="Github Users" />
-    </div>
-    <div>
-      <h2>Search</h2>
-      <input name="search" v-model="search">
-    </div>
-  </header>
-
-<!--  <NavBar />-->
+  <NavBar>
+    <input v-model="search"
+           name="search"
+           class="block w-full rounded-md border-0 bg-white py-1.5 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+           placeholder="Search" type="search">
+  </NavBar>
 
 
   <main>
-    <UsersSearchResult :query="search" />
+    <UsersSearchResult :query="search"/>
   </main>
 </template>
 
