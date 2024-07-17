@@ -12,6 +12,7 @@ describe('<UsersSearchResult />', () => {
 
     cy.contains('Loading...')
     cy.get("[role='list']").should('not.exist')
+    cy.get('[data-testid="message"]').should('not.exist')
 
     cy.wait('@getSearch')
 
@@ -23,11 +24,13 @@ describe('<UsersSearchResult />', () => {
   })
 
   it('render message if no results', () => {
-    cy.intercept(`${API_BASE_URL}*`,  []).as('getSearch')
+    cy.intercept(`${API_BASE_URL}*`,  { items: []}).as('getSearch')
 
     cy.mount(UsersSearchResult, {props: {query: 'abracdabra'}})
 
+
     cy.get('[data-testid="message"]').should('have.text', 'User search returned no results.')
     cy.get("[role='list']").should('not.exist')
+    cy.contains('Loading...').should('not.exist')
   })
 })
