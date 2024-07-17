@@ -20,7 +20,7 @@ const changeUrl = useDebounceFn((newQuery) => {
 
 watch(() => props.query, changeUrl)
 
-const {data, isFetching, isFinished} = useFetch(url, {refetch: true}).json()
+const {data, isFetching, isFinished, error} = useFetch(url, {refetch: true}).json()
 
 const users = computed(() => {
   return data?.value?.items ?? [];
@@ -30,9 +30,11 @@ const users = computed(() => {
 
 <template>
   <div data-testid="users">
+
     <span v-if="isFetching">Loading...</span>
-    <span v-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
-    <ul role="list" v-if="isFinished && users.length > 0">
+    <span v-else-if="error">You’re going too fast! Please try again in 1 minute.</span>
+    <span v-else-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
+    <ul role="list" v-else-if="isFinished && users.length > 0">
       <li v-for="item in users" :key="item.login" role="listitem">
         <UserCard :name="item.login" :avatar="item.avatar_url" />
       </li>

@@ -33,4 +33,19 @@ describe('<UsersSearchResult />', () => {
     cy.get("[role='list']").should('not.exist')
     cy.contains('Loading...').should('not.exist')
   })
+
+  it('should handle 403 error', () => {
+    cy.intercept('GET', `${API_BASE_URL}*`, {
+      statusCode: 403,
+      body: userFixtures.rateLimitingError()
+    }).as('searchUsers')
+
+
+    cy.mount(UsersSearchResult, {props: {query: 'fact'}})
+
+
+    cy.wait('@searchUsers');
+
+    cy.contains('You’re going too fast! Please try again in 1 minute.')
+  })
 })
