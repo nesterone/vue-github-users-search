@@ -11,11 +11,12 @@ const props = withDefaults(defineProps<UserSearchResultProps>(), {
   query: () => ''
 })
 
-let url = ref(`https://api.github.com/search/users?q=${props.query}&per_page=3&page=1`);
-const {data} = useFetch(url, {refetch: true}).json()
+const getUrl = (q: string) => `https://api.github.com/search/users?q=${q}&per_page=3&page=1`
 
+let url = ref(getUrl(props.query));
+const {data} = useFetch(url, {refetch: true}).json()
 const changeUrl = useDebounceFn((newQuery) => {
-  url.value = `https://api.github.com/search/users?q=${newQuery}&per_page=3&page=1`
+  url.value = getUrl(newQuery);
 }, 500)
 
 watch(() => props.query, changeUrl)
