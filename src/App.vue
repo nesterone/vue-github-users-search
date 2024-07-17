@@ -17,7 +17,9 @@ const search = ref('fact')
 
 
   <main>
-    <UsersSearchResult :query="search"/>
+    <div class="container mx-auto sm:px-6 lg:px-8">
+      <UsersSearchResult :query="search"/>
+    </div>
   </main>
 </template>
 
