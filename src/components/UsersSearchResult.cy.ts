@@ -1,11 +1,12 @@
 import UsersSearchResult from './UsersSearchResult.vue'
 import {userFixtures} from "@/api/userFixtures";
+import {API_BASE_URL} from "@/config";
 
 describe('<UsersSearchResult />', () => {
   it('request for search and renders the same amount of results', () => {
 
     const expected = userFixtures.successfulServerResponse();
-    cy.intercept('https://api.github.com/search/users*',  expected).as('getSearch')
+    cy.intercept(`${API_BASE_URL}*`,  expected).as('getSearch')
 
     cy.mount(UsersSearchResult, {props: {query: 'fact'}})
 

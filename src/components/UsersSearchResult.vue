@@ -2,6 +2,7 @@
 import {useFetch, useDebounceFn} from "@vueuse/core";
 import {computed, ref, watch} from "vue";
 import UserCard from "@/components/UserCard.vue";
+import {API_BASE_URL} from "@/config";
 
 interface UserSearchResultProps {
   query: string
@@ -11,7 +12,7 @@ const props = withDefaults(defineProps<UserSearchResultProps>(), {
   query: () => ''
 })
 
-const getUrl = (q: string) => `https://api.github.com/search/users?q=${q}&per_page=3&page=1`
+const getUrl = (q: string) => `${API_BASE_URL}?q=${q}&per_page=3&page=1`
 let url = ref(getUrl(props.query));
 const changeUrl = useDebounceFn((newQuery) => {
   url.value = getUrl(newQuery);
