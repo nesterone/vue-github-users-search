@@ -2,6 +2,7 @@
 import Greetings from './components/Greetings.vue'
 import UsersSearchResult from "@/components/UsersSearchResult.vue";
 import {ref} from "vue";
+import NavBar from "@/components/NavBar.vue";
 
 const search = ref('fact')
 
@@ -19,6 +20,9 @@ const search = ref('fact')
       <input name="search" v-model="search">
     </div>
   </header>
+
+<!--  <NavBar />-->
+
 
   <main>
     <UsersSearchResult :query="search" />
