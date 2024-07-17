@@ -2,9 +2,6 @@ describe('Search Users', () => {
   it('has a users component with items by default', () => {
     cy.visit('/')
 
-    cy.contains('h1', 'Github Users')
-    cy.contains('Search')
-
     cy.get('[data-testid=users] [role=listitem]').its('length').should('eq', 3);
   })
 

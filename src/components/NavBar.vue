@@ -5,7 +5,7 @@
         <div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
           <div class="flex flex-shrink-0 items-center">
             <a href="#">
-              <img class="h-8 w-auto" src="./../assets/github-mark.svg" alt="Your Company">
+              <img class="h-8 w-auto" src="./../assets/github-mark.svg" alt="Github Logo">
             </a>
           </div>
         </div>

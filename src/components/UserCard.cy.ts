@@ -3,15 +3,15 @@ import { userFixtures } from '@/api/userFixtures'
 
 describe('<UserCard />', () => {
   it('renders with basic props', () => {
-    const [joe] = userFixtures.defaultList()
+    const [joe] = userFixtures.successfulServerResponse().items
 
     cy.mount(UserCard, {
       props: {
-        name: joe.name,
-        avatar: joe.avatar
+        name: joe.login,
+        avatar: joe.avatar_url
       }
     })
-    cy.contains(joe.name)
-    cy.get(`img[alt="User Avatar"]`).should('have.attr', 'src', joe.avatar)
+    cy.contains(joe.login)
+    cy.get(`img[alt="User Avatar"]`).should('have.attr', 'src', joe.avatar_url)
   })
 })
