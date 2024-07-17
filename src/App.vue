@@ -15,17 +15,13 @@ const search = ref('fact')
       <Greetings msg="Github Users" />
     </div>
     <div>
-      <h2>Query</h2>
-      <input v-model="search">
+      <h2>Search</h2>
+      <input name="search" v-model="search">
     </div>
   </header>
 
   <main>
-
-    <p>{{ search }}</p>
-
     <UsersSearchResult :query="search" />
-
   </main>
 </template>
 
