@@ -29,14 +29,13 @@ const users = computed(() => {
 </script>
 
 <template>
-
   <div data-testid="users">
     <span v-if="isFetching">Loading...</span>
+    <span v-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
     <ul role="list" v-if="isFinished && users.length > 0">
       <li v-for="item in users" :key="item.login" role="listitem">
         <UserCard :name="item.login" :avatar="item.avatar_url" />
       </li>
     </ul>
-    <span v-else-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
   </div>
 </template>
