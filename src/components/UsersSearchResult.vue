@@ -5,14 +5,16 @@ import UserCard from "@/components/UserCard.vue";
 import {API_BASE_URL} from "@/config";
 
 interface UserSearchResultProps {
-  query: string
+  query: string;
+  perPage: string;
 }
 
 const props = withDefaults(defineProps<UserSearchResultProps>(), {
-  query: () => ''
+  query: () => '',
+  perPage: () => '3'
 })
 
-const getUrl = (q: string) => `${API_BASE_URL}?q=${q}&per_page=3&page=1`
+const getUrl = (q: string) => `${API_BASE_URL}?q=${q}&per_page=${props.perPage}&page=1`
 let url = ref(getUrl(props.query));
 const changeUrl = useDebounceFn((newQuery) => {
   url.value = getUrl(newQuery);
@@ -34,8 +36,8 @@ const users = computed(() => {
     <span v-if="isFetching">Loading...</span>
     <span v-else-if="error">You’re going too fast! Please try again in 1 minute.</span>
     <span v-else-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
-    <ul v-else-if="isFinished && users.length > 0" role="list" class="divide-y divide-gray-100">
-      <li v-for="item in users" :key="item.login" role="listitem" class="flex justify-between gap-x-6 py-5">
+    <ul v-else-if="isFinished && users.length > 0" role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <li v-for="item in users" :key="item.login" role="listitem" class="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow">
         <UserCard :name="item.login" :avatar="item.avatar_url" />
       </li>
     </ul>
