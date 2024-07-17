@@ -3,14 +3,14 @@ import {userFixtures} from "@/api/userFixtures";
 import {API_BASE_URL} from "@/config";
 
 describe('<UsersSearchResult />', () => {
-  it('request for search and renders the same amount of results', () => {
+  it('runs initial request, shows loading and then results', () => {
 
     const expected = userFixtures.successfulServerResponse();
     cy.intercept(`${API_BASE_URL}*`,  expected).as('getSearch')
 
     cy.mount(UsersSearchResult, {props: {query: 'fact'}})
 
-    cy.get('[data-testid="message"]').should('have.text', 'User search returned no results.')
+    cy.contains('Loading...')
     cy.get("[role='list']").should('not.exist')
 
     cy.wait('@getSearch')

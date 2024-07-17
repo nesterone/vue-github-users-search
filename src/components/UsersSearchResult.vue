@@ -20,7 +20,7 @@ const changeUrl = useDebounceFn((newQuery) => {
 
 watch(() => props.query, changeUrl)
 
-const {data} = useFetch(url, {refetch: true}).json()
+const {data, isFetching} = useFetch(url, {refetch: true}).json()
 
 const users = computed(() => {
   return data?.value?.items;
@@ -29,7 +29,9 @@ const users = computed(() => {
 </script>
 
 <template>
+
   <div data-testid="users">
+    <span v-if="isFetching">Loading...</span>
     <ul role="list" v-if="data">
       <li v-for="item in users" :key="item.login" role="listitem">
         <UserCard :name="item.login" :avatar="item.avatar_url" />
