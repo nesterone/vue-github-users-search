@@ -1,6 +1,6 @@
 {
-  "name": "vue-github-users-search",
-  "version": "0.0.0",
+  "name": "vue-github-user-search",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {
