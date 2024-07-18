@@ -32,7 +32,6 @@ const users = computed(() => {
 
 <template>
   <div data-testid="users">
-
     <span v-if="isFetching">Loading...</span>
     <span v-else-if="error">You’re going too fast! Please try again in 1 minute.</span>
     <span v-else-if="isFinished && users.length === 0" data-testid="message">User search returned no results.</span>
