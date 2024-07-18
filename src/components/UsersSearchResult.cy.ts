@@ -29,7 +29,7 @@ describe('<UsersSearchResult />', () => {
     cy.mount(UsersSearchResult, {props: {query: 'abracdabra'}})
 
 
-    cy.get('[data-testid="message"]').should('have.text', 'User search returned no results.')
+    cy.get('[data-testid="message"]').should('have.text', 'No Users Found')
     cy.get("[role='list']").should('not.exist')
     cy.contains('Loading...').should('not.exist')
   })
