@@ -1,5 +1,6 @@
 # vue-github-users-search
 
+Sample frontend application to show usage of Vue Composition API, Cypress, Tailwind and Github API
 
 
 ## Recommended IDE Setup
