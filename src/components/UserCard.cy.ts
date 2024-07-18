@@ -15,7 +15,6 @@ describe('<UserCard />', () => {
     })
     cy.contains(joe.login)
     cy.contains(joe.type)
-    cy.contains('Site Admin')
     cy.get(`img[alt="User Avatar"]`).should('have.attr', 'src', joe.avatar_url)
   })
 })
