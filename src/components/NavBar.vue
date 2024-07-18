@@ -1,6 +1,6 @@
 <template>
   <header class="bg-white shadow-sm lg:static lg:overflow-y-visible">
-    <div class="w-full">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative flex justify-between">
         <div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2 px-4">
           <div class="flex flex-shrink-0 items-center">

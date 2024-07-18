@@ -1,5 +1,5 @@
 import UserCard from './UserCard.vue'
-import { userFixtures } from '@/api/userFixtures'
+import { userFixtures } from '@/components/__test__/userFixtures'
 
 describe('<UserCard />', () => {
   it('renders with basic props', () => {

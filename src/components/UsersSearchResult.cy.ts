@@ -1,5 +1,5 @@
 import UsersSearchResult from './UsersSearchResult.vue'
-import {userFixtures} from "@/api/userFixtures";
+import {userFixtures} from "@/components/__test__/userFixtures";
 import {API_BASE_URL} from "@/config";
 
 describe('<UsersSearchResult />', () => {
